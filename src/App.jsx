@@ -38,7 +38,7 @@ function App() {
   return (
     <>
       {/* <div className="bg-[#111827] h-screen"> */}
-      <div className="bg-gradient-to-b from-gray-900 to-gray-800 min-h-screen">
+      <div className="bg-gradient-to-b from-gray-900 to-gray-800 min-h-screen lg:bg-[url('background.svg')]">
         <div className="w-4/5 mx-auto">
           <h1 className="pt-16 text-white lg:text-xl font-serif">Enter your text here</h1>
           <textarea
