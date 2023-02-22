@@ -2,23 +2,28 @@ import { Button } from "flowbite-react";
 import { useState } from "react";
 
 function App() {
+  // text state
   const [text, setText] = useState("");
+  // word counter state
   const [word, setWord] = useState(0);
-
+// run this function when user input something on textarea
   const handleOnChange = (e) => {
     const changedText = e.target.value;
     setText(changedText);
     
     setWord(countWords(changedText))
   };
+  // make string to uppercase
   const handleOnUppercase = () => {
     let uppercase = text.toUpperCase();
     setText(uppercase);
   };
+  // make string to lowercase
   const handleOnLowercase = () => {
     let uppercase = text.toLowerCase();
     setText(uppercase);
   };
+  // word counter function
   function countWords(sentence) {
     // Remove any leading or trailing spaces from the sentence
     sentence = sentence.trim();
@@ -34,6 +39,11 @@ function App() {
     // Return the length of the array, which is the total number of words
     return words.length;
   }
+  // extra spece remover function
+  function removeExtraSpaces() {
+    setText(text.replace(/\s+/g, ' ').trim());
+  }
+  
 
   return (
     <>
@@ -60,6 +70,11 @@ function App() {
             <div className = "m-0">
               <Button className = "mx-auto my-3 lg:m-0" color="dark" onClick={handleOnLowercase}>
                 Convert to lowercase
+              </Button>
+            </div>
+            <div className = "m-0">
+              <Button className = "mx-auto my-3 lg:m-0" color="dark" onClick={removeExtraSpaces}>
+                Remove extra spaces
               </Button>
             </div>
           </div>
